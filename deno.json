@@ -1,0 +1,25 @@
+{
+    "name": "@zilla/logger",
+    "version": "1.0.0",
+    "description": "Tiny (but effective) logging library for Deno 🪵🦕",
+    "license": "MIT",
+    "exports": "./src/mod.ts",
+    "lint": {
+		"rules": {
+			"exclude": [
+				"no-explicit-any",
+				"ban-types",
+                "no-control-regex"
+			]
+		}
+	},
+    "tasks": {
+		"demo": "deno run -A demo/main.ts"
+	},
+    "imports": {
+        "@std/expect": "jsr:@std/expect@^1.0.0",
+        "@std/fmt": "jsr:@std/fmt@^1.0.0",
+        "date-fns": "npm:date-fns@^4.0.0",
+        "is-what": "npm:is-what@^5.0.0"
+    }
+}
