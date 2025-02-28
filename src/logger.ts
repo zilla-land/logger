@@ -104,7 +104,7 @@ export class Logger {
         message: LogMessage,
         throws?: boolean
 
-    ): LogMessage | undefined {
+    ): LogMessage | undefined | never {
 
         return this._log(
             message,
@@ -128,7 +128,7 @@ export class Logger {
         throws?: boolean,
         ctx?: any
 
-    ): LogMessage | undefined {
+    ): LogMessage | undefined | never {
 
         return this.logMessage(
             this.message(message, level, ctx),
@@ -214,7 +214,7 @@ export class Logger {
         message: string,
         ctx?: any
 
-    ): LogMessage | undefined {
+    ): LogMessage | undefined | never {
 
         return this.log(
             message,
@@ -236,7 +236,7 @@ export class Logger {
         message: string,
         ctx?: any
 
-    ): LogMessage | undefined {
+    ): LogMessage | undefined | never {
 
         return this.log(
             message,
@@ -257,7 +257,7 @@ export class Logger {
         message: string,
         ctx?: any
 
-    ) {
+    ): never {
 
         this.log(
             message,
@@ -265,6 +265,16 @@ export class Logger {
             true,
             ctx
         )
+
+        // The below error will never be thrown
+        // because the above function will always
+        // throw an error in this context.
+        // 
+        // We're adding this here so typescript
+        // doesn't freakout about this function
+        // returning `never`.
+
+        throw new Error()
 
     }
 
@@ -337,7 +347,7 @@ export class Logger {
         message: LogMessage,
         throws: boolean
 
-    ): LogMessage | undefined {
+    ): LogMessage | undefined | never {
 
         if (!this.canLog(message.level)) {
 

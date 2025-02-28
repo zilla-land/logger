@@ -1,6 +1,6 @@
 {
     "name": "@zilla/logger",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Tiny (but effective) logging library for Deno 🪵🦕",
     "license": "MIT",
     "exports": "./src/mod.ts",
